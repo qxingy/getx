@@ -102,7 +102,7 @@ class BaseWebSocket {
   Future<WebSocket> _connectForSelfSignedCert(String url) async {
     try {
       var r = Random();
-      var key = base64.encode(List<int>.generate(8, (_) => r.nextInt(255)));
+      var key = base64.encode(List<int>.generate(16, (_) => r.nextInt(255)));
       var client = HttpClient(context: SecurityContext());
       client.badCertificateCallback = (cert, host, port) {
         Get.log(
